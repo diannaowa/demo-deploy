@@ -14,7 +14,7 @@
       {
         "targetPort": 80,
         "port": 8000,
-        "nodePort": "${SVC_PORT}"
+        "nodePort": ${SVC_PORT}
       }
     ],
     "selector": {
