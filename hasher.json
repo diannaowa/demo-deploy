@@ -1,0 +1,41 @@
+{
+  "apiVersion": "apps/v1beta2",
+  "kind": "Deployment",
+  "metadata": {
+    "name": "hasher-deployment",
+    "namespace": "${NAMESPACE}",
+    "labels": {
+      "app": "hasher"
+    }
+  },
+  "spec": {
+    "replicas": 1,
+    "selector": {
+      "matchLabels": {
+        "tier": "hasher"
+      }
+    },
+    "template": {
+      "metadata": {
+        "labels": {
+          "app": "myapp",
+          "tier": "hasher",
+          "environment": "${NAMESPACE}"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "hasher",
+            "image": "hasher:${TAG}",
+            "ports": [
+              {
+                "containerPort": 80
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

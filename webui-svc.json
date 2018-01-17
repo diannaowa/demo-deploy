@@ -1,0 +1,22 @@
+{
+  "apiVersion": "v1",
+  "kind": "Service",
+  "metadata": {
+    "name": "webui",
+    "namespace": "${NAMESPACE}",
+    "labels": {
+      "name": "webui"
+    }
+  },
+  "spec": {
+    "ports": [
+      {
+        "targetPort": 80,
+        "port": 8000
+      }
+    ],
+    "selector": {
+      "tier": "webui"
+    }
+  }
+}

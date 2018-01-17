@@ -1,0 +1,22 @@
+{
+  "apiVersion": "v1",
+  "kind": "Service",
+  "metadata": {
+    "name": "hasher",
+    "namespace": "${NAMESPACE}",
+    "labels": {
+      "name": "hasher"
+    }
+  },
+  "spec": {
+    "ports": [
+      {
+        "targetPort": 80,
+        "port": 8000
+      }
+    ],
+    "selector": {
+      "tier": "hasher"
+    }
+  }
+}

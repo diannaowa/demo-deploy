@@ -1,0 +1,41 @@
+{
+  "apiVersion": "apps/v1beta2",
+  "kind": "Deployment",
+  "metadata": {
+    "name": "webui-deployment",
+    "namespace": "${NAMESPACE}",
+    "labels": {
+      "app": "webui"
+    }
+  },
+  "spec": {
+    "replicas": 1,
+    "selector": {
+      "matchLabels": {
+        "tier": "webui"
+      }
+    },
+    "template": {
+      "metadata": {
+        "labels": {
+          "app": "myapp",
+          "tier": "webui",
+          "environment": "${NAMESPACE}"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "webui",
+            "image": "webui:${TAG}",
+            "ports": [
+              {
+                "containerPort": 80
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

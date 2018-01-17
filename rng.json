@@ -1,0 +1,41 @@
+{
+  "apiVersion": "apps/v1beta2",
+  "kind": "Deployment",
+  "metadata": {
+    "name": "rng-deployment",
+    "namespace": "${NAMESPACE}",
+    "labels": {
+      "app": "rng"
+    }
+  },
+  "spec": {
+    "replicas": 1,
+    "selector": {
+      "matchLabels": {
+        "tier": "rng"
+      }
+    },
+    "template": {
+      "metadata": {
+        "labels": {
+          "app": "myapp",
+          "tier": "rng",
+          "environment": "${NAMESPACE}"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "rng",
+            "image": "rng:${TAG}",
+            "ports": [
+              {
+                "containerPort": 80
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

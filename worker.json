@@ -1,0 +1,41 @@
+{
+  "apiVersion": "apps/v1beta2",
+  "kind": "Deployment",
+  "metadata": {
+    "name": "worker-deployment",
+    "namespace": "${NAMESPACE}",
+    "labels": {
+      "app": "worker"
+    }
+  },
+  "spec": {
+    "replicas": 1,
+    "selector": {
+      "matchLabels": {
+        "tier": "worker"
+      }
+    },
+    "template": {
+      "metadata": {
+        "labels": {
+          "app": "myapp",
+          "tier": "worker",
+          "environment": "${NAMESPACE}"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "worker",
+            "image": "worker:${TAG}",
+            "ports": [
+              {
+                "containerPort": 80
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
