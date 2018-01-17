@@ -27,7 +27,7 @@
         "containers": [
           {
             "name": "webui",
-            "image": "webui:${TAG}",
+            "image": "172.31.19.41/library/webui:${TAG}",
             "ports": [
               {
                 "containerPort": 80

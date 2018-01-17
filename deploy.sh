@@ -3,6 +3,7 @@
 COM=$1
 NAMESPACE=$2
 TAG=$3
+SVC_PORT=$4
 
 function load_template {
 
@@ -18,3 +19,4 @@ load_template ${COM}-svc
 
 kubectl --server $K8S_MASTER_HOST apply -f tmp/$COM.json
 kubectl --server $K8S_MASTER_HOST apply -f tmp/${COM}-svc.json
+rm -rf tmp/*
