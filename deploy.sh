@@ -19,4 +19,4 @@ load_template ${COM}-svc
 
 kubectl --server $K8S_MASTER_HOST apply -f tmp/$COM.json
 kubectl --server $K8S_MASTER_HOST apply -f tmp/${COM}-svc.json
-rm -rf tmp/*
+rm -rf tmp/*.json
