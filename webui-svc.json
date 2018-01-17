@@ -13,7 +13,7 @@
     "ports": [
       {
         "targetPort": 80,
-        "port": 8000,
+        "port": 80,
         "nodePort": ${SVC_PORT}
       }
     ],
