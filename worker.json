@@ -27,7 +27,7 @@
         "containers": [
           {
             "name": "worker",
-            "image": "172.31.19.41/library/worker:${TAG}",
+            "image": "192.168.56.51:5000/worker:${TAG}",
             "ports": [
               {
                 "containerPort": 80
