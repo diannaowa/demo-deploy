@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 COM=$1
 NAMESPACE=$2
 TAG=$3
